@@ -868,7 +868,7 @@
 
 
         /* --- ROZDZIAŁ 7: RANKING WOJEWÓDZTW --- */
-        #<span class="keyword-highlight">ranking</span> .chart-container { margin: 40px 0; width: 100%; text-align: center; }
+        #ranking.chart-container { margin: 40px 0; width: 100%; text-align: center; }
         #ranking .chart-container img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.10); background: white; display: block; margin: 0 auto; }
         #ranking .table-image img { background: white; padding: 0; }
         #ranking .chart-title, #ranking .table-title { font-size: 1rem; margin: 25px 0 10px 0; text-align: left; line-height: 1.5; }
@@ -1839,9 +1839,792 @@
             .mini-subnav a, .mini-subnav span { margin: 4px 0; }
         }
 
+
+
+        /* =========================================================
+           RESPONSYWNOŚĆ + POPRAWKI CZYTELNOŚCI
+           ========================================================= */
+
+        .keyword-highlight,
+        .key-method,
+        .key-number,
+        .key-term {
+            display: inline;
+            white-space: normal;
+            word-break: normal;
+            overflow-wrap: normal;
+            hyphens: none;
+        }
+
+        .map-dot-center,
+        .map-dot-pulse {
+            pointer-events: auto;
+        }
+
+        .map-dot-center {
+            cursor: pointer;
+        }
+
+        .map-dot-center:hover {
+            filter: drop-shadow(0 0 8px rgba(217,119,6,.65));
+        }
+
+        .province-hover-tooltip {
+            position: fixed;
+            z-index: 2500;
+            background: rgba(253, 248, 245, 0.98);
+            border: 2px solid var(--accent-warm);
+            color: #7c2d12;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            font-weight: 850;
+            box-shadow: 0 10px 24px rgba(120,113,108,.22);
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -120%);
+            transition: opacity .12s ease;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 1200px) {
+            .content-section {
+                max-width: 1280px;
+            }
+
+            .text-glass-card {
+                padding-left: 70px;
+                padding-right: 70px;
+            }
+
+            .hero-container {
+                max-width: 960px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .content-section {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            .text-glass-card {
+                padding: 44px 34px;
+            }
+
+            .content-grid,
+            .content-grid.reverse,
+            .grid-container,
+            .grid-container.reverse {
+                grid-template-columns: 1fr !important;
+                direction: ltr !important;
+            }
+
+            .grid-container.reverse > * {
+                direction: ltr !important;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+
+            .summary-cards,
+            .quick-numbers,
+            .category-legend {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .image-placeholder {
+                min-height: 320px;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 760px) {
+            body {
+                font-size: 15px;
+            }
+
+            nav {
+                padding: 14px 18px;
+            }
+
+            .nav-logo {
+                font-size: 0.95rem;
+                gap: 8px;
+            }
+
+            .menu-btn {
+                font-size: 1.55rem;
+            }
+
+            .sidebar {
+                width: min(88vw, 320px);
+                right: -90vw;
+                padding: 72px 28px 32px 28px;
+            }
+
+            .hero-section {
+                padding: 86px 14px 24px 14px;
+                min-height: 92vh;
+            }
+
+            .hero-container {
+                padding: 34px 22px;
+                border-radius: 18px;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 10vw, 2.7rem);
+            }
+
+            .subtitle {
+                font-size: 0.88rem;
+                letter-spacing: 1.4px;
+                flex-wrap: wrap;
+            }
+
+            .project-details {
+                grid-template-columns: 1fr !important;
+                gap: 14px;
+            }
+
+            .content-section {
+                padding: 96px 14px 62px 14px !important;
+            }
+
+            .text-glass-card {
+                padding: 34px 20px !important;
+                border-radius: 18px;
+                margin-bottom: 52px !important;
+            }
+
+            .section-title {
+                font-size: clamp(1.75rem, 8vw, 2.35rem);
+                line-height: 1.15;
+                margin-bottom: 28px;
+                padding-left: 14px;
+            }
+
+            .subsection-title {
+                font-size: 1.15rem;
+                line-height: 1.35;
+                align-items: flex-start;
+                padding: 10px 12px;
+                margin-top: 28px;
+            }
+
+            .text-glass-card p {
+                font-size: 0.98rem !important;
+                line-height: 1.75 !important;
+                text-align: left !important;
+                max-width: 100%;
+            }
+
+            .reading-note,
+            .reader-intro,
+            .interpret-box,
+            .takeaway-box,
+            .insight-box {
+                grid-template-columns: 1fr !important;
+                padding: 18px 17px;
+                border-radius: 16px;
+            }
+
+            .quick-numbers,
+            .summary-cards,
+            .category-legend {
+                grid-template-columns: 1fr !important;
+                gap: 14px;
+            }
+
+            .quick-number-card,
+            .summary-card,
+            .category-legend-item {
+                padding: 18px 16px;
+            }
+
+            .quick-number-value {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr !important;
+            }
+
+            .stat-number {
+                font-size: 2.7rem;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                border-radius: 14px;
+                margin-left: -4px;
+                margin-right: -4px;
+            }
+
+            table,
+            #analiza-statystyczna table,
+            #analiza-kanoniczna .result-table,
+            #pca .result-table,
+            #selekcja-klasyfikacja .result-table {
+                min-width: 720px;
+                font-size: 0.72rem !important;
+            }
+
+            th,
+            td {
+                padding: 8px 7px !important;
+            }
+
+            .chart-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .chart-container img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .image-placeholder {
+                min-height: 300px;
+                height: auto;
+                overflow: hidden;
+            }
+
+            .schematic-wrapper {
+                transform: scale(0.78);
+                min-height: 300px;
+            }
+
+            .mini-subnav {
+                padding: 12px;
+                display: flex;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .mini-subnav a,
+            .mini-subnav span {
+                flex: 0 0 auto;
+                font-size: 0.78rem;
+            }
+
+            .chapter-kicker {
+                font-size: 0.76rem;
+                letter-spacing: 0.06em;
+            }
+
+            .floating-decor,
+            .sticky-chapter-dots,
+            .chapter-side-label {
+                display: none !important;
+            }
+
+            #back-to-top {
+                width: 44px;
+                height: 44px;
+                right: 16px;
+                bottom: 16px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero-container {
+                padding: 28px 18px;
+            }
+
+            .text-glass-card {
+                padding: 28px 16px !important;
+            }
+
+            .section-title {
+                font-size: 1.65rem;
+            }
+
+            .subsection-title {
+                font-size: 1.05rem;
+            }
+
+            .quick-number-value {
+                font-size: 1.85rem;
+            }
+
+            .reader-intro i,
+            .interpret-box i,
+            .takeaway-box i,
+            .insight-box i {
+                font-size: 1.65rem;
+                width: fit-content;
+            }
+        }
+
+
+
+        /* =========================================================
+           DEKORACYJNE TŁO KATEGORII + WOJEWÓDZTWA
+           ========================================================= */
+
+        .ambient-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .ambient-category,
+        .ambient-province {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            filter: drop-shadow(0 10px 18px rgba(120,113,108,0.10));
+            animation: ambientDrift 14s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        .ambient-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.84rem;
+            letter-spacing: 0.02em;
+            opacity: 0.34;
+            border: 1px solid rgba(255,255,255,0.65);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .ambient-category i {
+            font-size: 1.02rem;
+        }
+
+        .cat-demografia {
+            background: rgba(251, 191, 36, 0.18);
+            color: #b45309;
+            border-color: rgba(251, 191, 36, 0.40);
+        }
+
+        .cat-zamoznosc {
+            background: rgba(16, 185, 129, 0.16);
+            color: #047857;
+            border-color: rgba(16, 185, 129, 0.32);
+        }
+
+        .cat-srodowisko {
+            background: rgba(34, 197, 94, 0.15);
+            color: #15803d;
+            border-color: rgba(34, 197, 94, 0.32);
+        }
+
+        .cat-infrastruktura {
+            background: rgba(59, 130, 246, 0.14);
+            color: #1d4ed8;
+            border-color: rgba(59, 130, 246, 0.28);
+        }
+
+        .cat-ranking {
+            background: rgba(249, 115, 22, 0.16);
+            color: #c2410c;
+            border-color: rgba(249, 115, 22, 0.32);
+        }
+
+        .cat-spoleczne {
+            background: rgba(236, 72, 153, 0.12);
+            color: #be185d;
+            border-color: rgba(236, 72, 153, 0.24);
+        }
+
+        .ambient-province {
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.42);
+            border: 1px solid rgba(217,119,6,0.16);
+            color: rgba(120, 113, 108, 0.72);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0.62;
+        }
+
+        .ambient-1 { top: 11%; left: 2.2%; animation-delay: 0s; }
+        .ambient-2 { top: 25%; right: 2.6%; animation-delay: 1.2s; }
+        .ambient-3 { top: 43%; left: 1.5%; animation-delay: 2.8s; }
+        .ambient-4 { top: 62%; right: 1.8%; animation-delay: 4s; }
+        .ambient-5 { top: 79%; left: 2.8%; animation-delay: 5.2s; }
+        .ambient-6 { top: 88%; right: 3.2%; animation-delay: 6.1s; }
+
+        .province-1 { top: 16%; right: 1.6%; animation-delay: 0.8s; }
+        .province-2 { top: 33%; left: 2.2%; animation-delay: 1.7s; }
+        .province-3 { top: 49%; right: 2.8%; animation-delay: 3.2s; }
+        .province-4 { top: 58%; left: 1.4%; animation-delay: 4.6s; }
+        .province-5 { top: 69%; right: 2.4%; animation-delay: 5.8s; }
+        .province-6 { top: 83%; left: 2%; animation-delay: 6.8s; }
+        .province-7 { top: 90%; right: 1.2%; animation-delay: 7.7s; }
+        .province-8 { top: 9%; left: 42%; animation-delay: 2.1s; }
+
+        @keyframes ambientDrift {
+            0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate3d(8px, -18px, 0) rotate(-2deg) scale(1.02); }
+            50% { transform: translate3d(-6px, -30px, 0) rotate(2deg) scale(0.98); }
+            75% { transform: translate3d(10px, -12px, 0) rotate(-1deg) scale(1.01); }
+        }
+
+        .text-glass-card,
+        .table-container,
+        .chart-container,
+        .image-placeholder,
+        .quote-box,
+        .reading-note,
+        .reader-intro,
+        .interpret-box,
+        .takeaway-box,
+        .insight-box {
+            position: relative;
+            z-index: 3;
+        }
+
+        .table-container,
+        .chart-container,
+        .image-placeholder {
+            overflow: visible;
+        }
+
+        .table-container::before,
+        .chart-container::before,
+        .image-placeholder::before,
+        .table-container::after,
+        .chart-container::after,
+        .image-placeholder::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(251,191,36,0.95), rgba(249,115,22,0.88));
+            box-shadow: 0 0 0 5px rgba(255,247,237,0.80), 0 8px 18px rgba(217,119,6,0.15);
+            z-index: 4;
+            opacity: 0.78;
+            transition: transform .25s ease;
+        }
+
+        .table-container::before,
+        .chart-container::before,
+        .image-placeholder::before {
+            top: -8px;
+            left: -8px;
+        }
+
+        .table-container::after,
+        .chart-container::after,
+        .image-placeholder::after {
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.86), rgba(16,185,129,0.86));
+        }
+
+        .table-container:hover::before,
+        .chart-container:hover::before,
+        .image-placeholder:hover::before,
+        .table-container:hover::after,
+        .chart-container:hover::after,
+        .image-placeholder:hover::after {
+            transform: scale(1.14);
+        }
+
+        @media (max-width: 980px) {
+            .ambient-category {
+                font-size: 0.76rem;
+                padding: 8px 12px;
+                opacity: 0.26;
+            }
+
+            .ambient-province {
+                font-size: 0.72rem;
+                padding: 6px 10px;
+                opacity: 0.48;
+            }
+
+            .province-8,
+            .ambient-5,
+            .ambient-6,
+            .province-7 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .ambient-layer {
+                opacity: 0.9;
+            }
+
+            .ambient-category {
+                font-size: 0.72rem;
+                padding: 7px 11px;
+                gap: 8px;
+                opacity: 0.16;
+            }
+
+            .ambient-province {
+                font-size: 0.68rem;
+                padding: 5px 9px;
+                opacity: 0.28;
+            }
+
+            .ambient-3,
+            .ambient-4,
+            .ambient-5,
+            .ambient-6,
+            .province-4,
+            .province-5,
+            .province-6,
+            .province-7,
+            .province-8 {
+                display: none;
+            }
+
+            .table-container::before,
+            .chart-container::before,
+            .image-placeholder::before,
+            .table-container::after,
+            .chart-container::after,
+            .image-placeholder::after {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+
+
+        /* Poprawka nazw województw na mapie */
+        .map-tooltip,
+        .province-hover-tooltip {
+            text-transform: none !important;
+            letter-spacing: 0.01em;
+        }
+
+
+
+        /* Usunięcie ozdobnych kropek z rogów tabel, wykresów i map */
+        .table-container::before,
+        .table-container::after,
+        .chart-container::before,
+        .chart-container::after,
+        .image-placeholder::before,
+        .image-placeholder::after {
+            display: none !important;
+            content: none !important;
+        }
+
+
+
+        /* Ruchome elementy tła — odbijanie od krawędzi ekranu */
+        .ambient-layer .ambient-category,
+        .ambient-layer .ambient-province {
+            animation: none !important;
+            transition: opacity 0.25s ease;
+            will-change: transform;
+        }
+
+        .ambient-layer .ambient-category {
+            opacity: 0.30;
+        }
+
+        .ambient-layer .ambient-province {
+            opacity: 0.50;
+        }
+
+        .ambient-layer .ambient-category:hover,
+        .ambient-layer .ambient-province:hover {
+            opacity: 0.85;
+        }
+
+        @media (max-width: 760px) {
+            .ambient-layer .ambient-category,
+            .ambient-layer .ambient-province {
+                opacity: 0.18;
+            }
+        }
+
+
+
+        /* Strona tytułowa bez przezroczystości — spójna z resztą raportu */
+        .hero-container {
+            background: rgba(253, 248, 245, 0.96) !important;
+            border: 1px solid rgba(217, 119, 6, 0.22) !important;
+            box-shadow: 0 24px 55px rgba(120, 113, 108, 0.18) !important;
+        }
+
+        .hero-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 247, 237, 0.96), rgba(255, 255, 255, 0.92));
+            z-index: -1;
+        }
+
+        .hero-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container::after {
+            content: "";
+            position: absolute;
+            top: -90px;
+            right: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(217,119,6,0.18), transparent 70%);
+            pointer-events: none;
+        }
+
+
+
+        /* Strona tytułowa w pełni nieprzezroczysta */
+        .hero-section {
+            position: relative !important;
+            z-index: 20 !important;
+        }
+
+        .hero-container {
+            position: relative !important;
+            isolation: isolate !important;
+            background: #fffaf5 !important;
+            background-color: #fffaf5 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: 1px solid rgba(217, 119, 6, 0.22) !important;
+            box-shadow: 0 24px 55px rgba(120, 113, 108, 0.18) !important;
+            overflow: hidden !important;
+        }
+
+        .hero-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: #fffaf5 !important;
+            opacity: 1 !important;
+            z-index: 0 !important;
+            pointer-events: none;
+        }
+
+        .hero-container::after {
+            content: "";
+            position: absolute;
+            top: -95px;
+            right: -95px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(217,119,6,0.13), transparent 70%);
+            pointer-events: none;
+            z-index: 1 !important;
+        }
+
+        .hero-container > * {
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        .hero-container .project-details {
+            background: #fffaf5 !important;
+        }
+
+        /* Tło lata za kartami, ale nie prześwituje przez kartę tytułową */
+        .ambient-layer {
+            z-index: 1 !important;
+        }
+
+
+
+        /* Więcej latających elementów w tle */
+        .ambient-extra {
+            opacity: 0.44;
+        }
+
+        .ambient-7 { top: 18%; left: 72%; animation-delay: 2.4s; }
+        .ambient-8 { top: 37%; left: 78%; animation-delay: 3.7s; }
+        .ambient-9 { top: 71%; left: 70%; animation-delay: 5.4s; }
+        .ambient-10 { top: 52%; left: 18%; animation-delay: 6.2s; }
+
+        .province-9 { top: 22%; left: 57%; animation-delay: 1.1s; }
+        .province-10 { top: 29%; right: 12%; animation-delay: 2.9s; }
+        .province-11 { top: 44%; left: 47%; animation-delay: 4.2s; }
+        .province-12 { top: 74%; right: 18%; animation-delay: 5.6s; }
+        .province-13 { top: 80%; left: 44%; animation-delay: 6.9s; }
+        .province-14 { top: 13%; right: 23%; animation-delay: 7.4s; }
+        .province-15 { top: 63%; left: 58%; animation-delay: 8.1s; }
+        .province-16 { top: 91%; left: 33%; animation-delay: 9.2s; }
+
+        @media (max-width: 980px) {
+            .ambient-8,
+            .ambient-9,
+            .ambient-10,
+            .province-11,
+            .province-12,
+            .province-13,
+            .province-14,
+            .province-15,
+            .province-16 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .ambient-7,
+            .ambient-8,
+            .ambient-9,
+            .ambient-10,
+            .province-9,
+            .province-10,
+            .province-11,
+            .province-12,
+            .province-13,
+            .province-14,
+            .province-15,
+            .province-16 {
+                display: none;
+            }
+        }
+
 </style>
 </head>
 <body>
+
+<div class="ambient-layer" aria-hidden="true">
+    <div class="ambient-category cat-demografia ambient-1"><i class="ph-fill ph-users-three"></i><span>Demografia</span></div>
+    <div class="ambient-category cat-zamoznosc ambient-2"><i class="ph-fill ph-coins"></i><span>Zamożność</span></div>
+    <div class="ambient-category cat-srodowisko ambient-3"><i class="ph-fill ph-tree-evergreen"></i><span>Środowisko</span></div>
+    <div class="ambient-category cat-infrastruktura ambient-4"><i class="ph-fill ph-train-regional"></i><span>Infrastruktura</span></div>
+    <div class="ambient-category cat-ranking ambient-5"><i class="ph-fill ph-trophy"></i><span>Ranking</span></div>
+    <div class="ambient-category cat-spoleczne ambient-6"><i class="ph-fill ph-heartbeat"></i><span>Warunki społeczne</span></div>
+
+    <div class="ambient-province province-1">Mazowieckie</div>
+    <div class="ambient-province province-2">Pomorskie</div>
+    <div class="ambient-province province-3">Śląskie</div>
+    <div class="ambient-province province-4">Lubuskie</div>
+    <div class="ambient-province province-5">Podlaskie</div>
+    <div class="ambient-province province-6">Małopolskie</div>
+    <div class="ambient-province province-7">Zachodniopomorskie</div>
+    <div class="ambient-province province-8">Świętokrzyskie</div>
+</div>
+
 <div id="reading-progress"></div>
 <button id="back-to-top" aria-label="Powrót na górę"><i class="ph-bold ph-arrow-up"></i></button>
 
@@ -1870,7 +2653,7 @@
 <a href="#analiza-kanoniczna" onclick="toggleMenu()"><i class="ph-fill ph-intersect-three"></i> 4. Analiza kanoniczna</a>
 <a href="#pca" onclick="toggleMenu()"><i class="ph-fill ph-chart-scatter"></i> 5. Analiza PCA</a>
 <a href="#selekcja-klasyfikacja" onclick="toggleMenu()"><i class="ph-fill ph-funnel"></i> 6. Selekcja i klasyfikacja</a>
-<a href="#ranking" onclick="toggleMenu()"><i class="ph-fill ph-trophy"></i> 7. Ranking (<span class="key-method">TOPSIS</span>)</a>
+<a href="#ranking" onclick="toggleMenu()"><i class="ph-fill ph-trophy"></i> 7. Ranking (TOPSIS)</a>
 </div>
 <div class="hero-section">
 <div class="hero-container">
@@ -1907,7 +2690,7 @@
 <h2 class="section-title">1. Wprowadzenie</h2>
 
 <div class="reading-note">
-<strong>Jak czytać ten raport?</strong> Najważniejsze wyniki zostały wyróżnione tabelami, wykresami i mapami. Czytając kolejne rozdziały, warto zwracać uwagę przede wszystkim na zmienne o dużej zmienności, silne korelacje oraz końcowe pozycje województw w <span class="keyword-highlight">ranking</span>ach.
+<strong>Jak czytać ten raport?</strong> Najważniejsze wyniki zostały wyróżnione tabelami, wykresami i mapami. Czytając kolejne rozdziały, warto zwracać uwagę przede wszystkim na zmienne o dużej zmienności, silne korelacje oraz końcowe pozycje województw w rankingach.
 </div>
 
 <div class="content-grid">
@@ -1994,7 +2777,7 @@
 <div class="quick-number-card"><i class="ph-fill ph-map-pin"></i><div class="quick-number-value count-up" data-count="16">16</div><div class="quick-number-label">województw Polski objętych analizą</div></div>
 <div class="quick-number-card"><i class="ph-fill ph-chart-bar"></i><div class="quick-number-value count-up" data-count="36">36</div><div class="quick-number-label">zmiennych diagnostycznych w bazie początkowej</div></div>
 <div class="quick-number-card"><i class="ph-fill ph-funnel"></i><div class="quick-number-value count-up" data-count="10">10</div><div class="quick-number-label">zmiennych po końcowej selekcji</div></div>
-<div class="quick-number-card"><i class="ph-fill ph-trophy"></i><div class="quick-number-value count-up" data-count="3">3</div><div class="quick-number-label">metody <span class="keyword-highlight">ranking</span>owe: Hellwig, TOPSIS i COPRAS</div></div>
+<div class="quick-number-card"><i class="ph-fill ph-trophy"></i><div class="quick-number-value count-up" data-count="3">3</div><div class="quick-number-label">metody rankingowe: Hellwig, TOPSIS i COPRAS</div></div>
 </div>
 
 <div class="content-grid reverse">
@@ -2297,7 +3080,7 @@
 <img alt="Wykres 2. Ranking zmiennych po asymetrii" src="Wykres 2. Ranking zmiennych po asymetrii.png"/>
 <div class="source-note"><span class="caption-label">Źródło:</span> <span class="caption-text">Opracowanie własne.</span></div>
 </div>
-<p>Po ocenie poziomu zmienności istotne jest również określenie kierunku i siły asymetrii rozkładów badanych cech. Współczynnik zmienności informuje o względnym zróżnicowaniu wartości cechy między województwami, natomiast współczynnik skośności pozwala ocenić, czy rozkład cechy jest symetryczny, czy też odchylony w kierunku wartości wysokich lub niskich. Z tego względu zmienne przedstawiono w formie <span class="keyword-highlight">ranking</span>u umożliwiającego porównanie stopnia i kierunku asymetrii ich rozkładów.</p>
+<p>Po ocenie poziomu zmienności istotne jest również określenie kierunku i siły asymetrii rozkładów badanych cech. Współczynnik zmienności informuje o względnym zróżnicowaniu wartości cechy między województwami, natomiast współczynnik skośności pozwala ocenić, czy rozkład cechy jest symetryczny, czy też odchylony w kierunku wartości wysokich lub niskich. Z tego względu zmienne przedstawiono w formie rankingu umożliwiającego porównanie stopnia i kierunku asymetrii ich rozkładów.</p>
 <p>Wyniki przedstawione na wykresie 2 potwierdzają wcześniejsze obserwacje wynikające z tabeli 1. Większość zmiennych charakteryzuje się asymetrią prawostronną, co oznacza, że w przypadku wielu cech pojedyncze województwa osiągają wyraźnie wyższe wartości od pozostałych. Szczególnie widoczne jest to dla zmiennych X27, X31, X16, X36, X20, X1 oraz X19, które uzyskały najwyższe wartości współczynnika skośności.</p>
 <p>Istotne jest również to, że część zmiennych o wysokim poziomie asymetrii należy jednocześnie do grupy zmiennych o dużej zmienności, przedstawionej na wykresie 1. Dotyczy to między innymi zmiennych X31, X27, X1, X19, X20 oraz X36. Oznacza to, że ich wysokie zróżnicowanie między województwami może wynikać nie tylko z ogólnego rozproszenia wartości, lecz także z występowania pojedynczych regionów o szczególnie wysokich wartościach danej cechy.</p>
 <p>Jednocześnie nie wszystkie zmienne o wysokim poziomie asymetrii należą do grupy zmiennych o dużej zmienności. Przykładem jest zmienna X16 – długość linii kolejowych na 1000 km², która charakteryzowała się umiarkowaną zmiennością, ale osiągnęła jedną z najwyższych wartości współczynnika skośności. Oznacza to, że mimo umiarkowanego zróżnicowania między województwami jej rozkład jest wyraźnie asymetryczny prawostronnie.</p>
@@ -2327,9 +3110,9 @@
 <div class="source-note"><span class="caption-label">Źródło:</span> <span class="caption-text">Opracowanie własne.</span></div>
 </div>
 <p>Na wykresie 5 przedstawiono dwadzieścia najsilniejszych korelacji między analizowanymi zmiennymi. Zestawienie to pozwala dokładniej wskazać pary cech najsilniej ze sobą powiązanych oraz ocenić, które zmienne mogą dostarczać zbliżonej informacji diagnostycznej.</p>
-<p>Najsilniejsza dodatnia <span class="keyword-highlight">korelacja</span> wystąpiła między zmiennymi X1 i X19, czyli gęstością zaludnienia oraz liczbą placówek pocztowych na 100 km². Oznacza to, że województwa o większej gęstości zaludnienia charakteryzują się zwykle również większą liczbą placówek pocztowych. Silne dodatnie zależności zaobserwowano także dla par X19–X20, X1–X12, X12–X19 oraz X1–X20. Wskazuje to na związek między koncentracją ludności, aktywnością gospodarczą oraz rozwojem infrastruktury usługowej.</p>
-<p>Wśród najsilniejszych korelacji znalazły się również zależności dotyczące infrastruktury, środowiska i usług. Przykładem są pary X16–X20, X16–X27 oraz X20–X27, które wskazują na współwystępowanie wysokich wartości wybranych wskaźników infrastrukturalnych, handlowych oraz środowiskowych. Może to sugerować, że regiony o lepiej rozwiniętej infrastrukturze oraz większej dostępności punktów handlowych częściej charakteryzują się także wyższymi wartościami emisji zanieczyszczeń. Interpretację tę należy jednak traktować ostrożnie, ponieważ <span class="keyword-highlight">korelacja</span> nie oznacza zależności przyczynowo-skutkowej.</p>
-<p>Jedyną korelacją ujemną w zestawieniu, a zarazem najsilniejszą zależnością o kierunku ujemnym, była <span class="keyword-highlight">korelacja</span> między zmiennymi X2 i X3, czyli wskaźnikiem dynamiki demograficznej oraz medianą wieku. Zależność ta oznacza, że województwa o starszej strukturze demograficznej cechują się zwykle niższą dynamiką demograficzną.</p>
+<p>Najsilniejsza dodatnia korelacjawystąpiła między zmiennymi X1 i X19, czyli gęstością zaludnienia oraz liczbą placówek pocztowych na 100 km². Oznacza to, że województwa o większej gęstości zaludnienia charakteryzują się zwykle również większą liczbą placówek pocztowych. Silne dodatnie zależności zaobserwowano także dla par X19–X20, X1–X12, X12–X19 oraz X1–X20. Wskazuje to na związek między koncentracją ludności, aktywnością gospodarczą oraz rozwojem infrastruktury usługowej.</p>
+<p>Wśród najsilniejszych korelacji znalazły się również zależności dotyczące infrastruktury, środowiska i usług. Przykładem są pary X16–X20, X16–X27 oraz X20–X27, które wskazują na współwystępowanie wysokich wartości wybranych wskaźników infrastrukturalnych, handlowych oraz środowiskowych. Może to sugerować, że regiony o lepiej rozwiniętej infrastrukturze oraz większej dostępności punktów handlowych częściej charakteryzują się także wyższymi wartościami emisji zanieczyszczeń. Interpretację tę należy jednak traktować ostrożnie, ponieważ korelacjanie oznacza zależności przyczynowo-skutkowej.</p>
+<p>Jedyną korelacją ujemną w zestawieniu, a zarazem najsilniejszą zależnością o kierunku ujemnym, była korelacjamiędzy zmiennymi X2 i X3, czyli wskaźnikiem dynamiki demograficznej oraz medianą wieku. Zależność ta oznacza, że województwa o starszej strukturze demograficznej cechują się zwykle niższą dynamiką demograficzną.</p>
 <div class="chart-title"><span class="caption-label">Wykres 6.</span> <span class="caption-text">Wybrane relacje społeczno-gospodarcze między zmiennymi</span></div>
 <div class="chart-container reveal-on-scroll">
 <img alt="Wykres 6. Wybrane relacje społeczno-gospodarcze między zmiennymi" src="Wykres 6. Wybrane relacje społeczno-gospodarcze między zmiennymi.png"/>
@@ -2352,7 +3135,7 @@
 <div class="chapter-side-label">ZALEŻNOŚCI</div>
 <div class="chapter-kicker"><i class="ph-fill ph-intersect-three"></i>Rozdział 4</div>
 <h2 class="section-title">4. Analiza kanoniczna</h2>
-<div class="interpret-box"><i class="ph-fill ph-lightbulb"></i><div><h4>Jak interpretować analizę kanoniczną?</h4><p>Analiza kanoniczna pokazuje, jak silnie powiązane są dwa zbiory zmiennych. Im wyższa <span class="keyword-highlight">korelacja</span> kanoniczna, tym silniejszy związek między badanymi grupami cech.</p></div></div>
+<div class="interpret-box"><i class="ph-fill ph-lightbulb"></i><div><h4>Jak interpretować analizę kanoniczną?</h4><p>Analiza kanoniczna pokazuje, jak silnie powiązane są dwa zbiory zmiennych. Im wyższa korelacjakanoniczna, tym silniejszy związek między badanymi grupami cech.</p></div></div>
 <p>W celu zbadania zależności między poziomem społeczno-gospodarczym województw a wybranymi warunkami infrastrukturalno-społecznymi zastosowano analizę kanoniczną. Metoda ta pozwala określić siłę związku między dwoma zbiorami zmiennych, a nie tylko między pojedynczymi cechami. W analizie wyróżniono dwa zbiory zmiennych. Pierwszy zbiór obejmował zmienne opisujące poziom społeczno-gospodarczy województw, natomiast drugi zbiór zawierał zmienne charakteryzujące warunki infrastrukturalno-społeczne.</p>
 <h3 class="subsection-title">Zbiór zmiennych X - poziom społeczno-gospodarczy i dostępność usług</h3>
 <p>Do pierwszego zbioru wybrano następujące zmienne:</p>
@@ -2837,7 +3620,7 @@
 <div class="chapter-kicker"><i class="ph-fill ph-trophy"></i>Rozdział 7</div>
 
 <style>
-#<span class="keyword-highlight">ranking</span> .report-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid rgba(15,23,42,.14);box-shadow:0 10px 24px rgba(15,23,42,.06);border-radius:12px;overflow:hidden;}
+#ranking.report-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid rgba(15,23,42,.14);box-shadow:0 10px 24px rgba(15,23,42,.06);border-radius:12px;overflow:hidden;}
 #ranking .table-scroll{width:100%;overflow-x:auto;margin:12px 0 10px;}
 #ranking .report-table th{background:#D97706;color:#fff;font-weight:700;text-align:center;padding:9px 10px;border:1px solid rgba(255,255,255,.22);white-space:nowrap;}
 #ranking .report-table td{padding:8px 10px;border:1px solid rgba(15,23,42,.12);text-align:center;white-space:nowrap;}
@@ -2876,8 +3659,8 @@
 
 
 <div class="summary-cards">
-<div class="summary-card"><i class="ph-fill ph-trophy"></i><strong>Najlepszy wynik <span class="key-method">TOPSIS</span></strong><span>W metodzie TOPSIS najwyżej oceniono województwo podlaskie.</span></div>
-<div class="summary-card"><i class="ph-fill ph-medal"></i><strong>Lider <span class="key-method">COPRAS</span></strong><span>W metodzie COPRAS pierwszą pozycję zajęło województwo lubuskie.</span></div>
+<div class="summary-card"><i class="ph-fill ph-trophy"></i><strong>Najlepszy wynik TOPSIS</strong><span>W metodzie TOPSIS najwyżej oceniono województwo podlaskie.</span></div>
+<div class="summary-card"><i class="ph-fill ph-medal"></i><strong>Lider COPRAS</strong><span>W metodzie COPRAS pierwszą pozycję zajęło województwo lubuskie.</span></div>
 <div class="summary-card"><i class="ph-fill ph-map-pin"></i><strong>Stabilne pozycje</strong><span>Porównanie trzech metod pozwala ocenić, które regiony utrzymują podobne miejsca.</span></div>
 <div class="summary-card"><i class="ph-fill ph-warning-circle"></i><strong>Różne metody</strong><span>Różnice rankingów wynikają z odmiennego sposobu agregacji zmiennych.</span></div>
 </div>
@@ -2888,7 +3671,7 @@
 </div>
 
 <p>Po zakończeniu procesu selekcji zmiennych do dalszej analizy rankingowej zakwalifikowano <span class="key-number">10 cech diagnostycznych</span>: <span class="key-term">X5, X11, X21, X24, X25, X26, X28, X29, X33 oraz X35</span>. Zmienne te spełniały przyjęte kryteria dotyczące poziomu skorelowania oraz zmienności, co uzasadniało ich wykorzystanie w procedurze porządkowania województw.</p>
-<p>Na podstawie wybranego zestawu cech skonstruowano rankingi województw z wykorzystaniem trzech metod wielokryterialnych: metody wzorca rozwoju Hellwiga (<span class="key-method">MWR</span>), metody <span class="key-method">TOPSIS</span> oraz metody <span class="key-method">COPRAS</span>. Zastosowanie kilku metod pozwala porównać uzyskane rezultaty i ocenić stabilność pozycji województw w zależności od przyjętej procedury agregacji zmiennych.</p>
+<p>Na podstawie wybranego zestawu cech skonstruowano rankingi województw z wykorzystaniem trzech metod wielokryterialnych: metody wzorca rozwoju Hellwiga (MWR), metody TOPSISoraz metody COPRAS. Zastosowanie kilku metod pozwala porównać uzyskane rezultaty i ocenić stabilność pozycji województw w zależności od przyjętej procedury agregacji zmiennych.</p>
 
 <div class="chart-container reveal-on-scroll">
 <div class="takeaway-box"><i class="ph-fill ph-check-circle"></i><div><h4>Co wynika z tabeli?</h4><p>Tabela pokazuje końcowy zestaw cech wykorzystanych w rankingach. To właśnie te zmienne stanowią podstawę oceny województw metodami Hellwiga, TOPSIS i COPRAS.</p></div></div>
@@ -2899,7 +3682,7 @@
 </div>
 <p>W tabeli 7 przedstawiono wartości analizowanych cech dla poszczególnych województw, które stanowiły podstawę dalszych obliczeń rankingowych. Kolorem zielonym oznaczono <span class="keyword-highlight">stymulanty</span>, natomiast kolorem czerwonym <span class="keyword-highlight">destymulanty</span>.</p>
 
-<h3 class="subsection-title">7.1. Ranking województw metodą wzorcową rozwoju Hellwiga (<span class="key-method">MWR</span>)</h3>
+<h3 class="subsection-title">7.1. Ranking województw metodą wzorcową rozwoju Hellwiga (MWR)</h3>
 <div class="insight-box"><i class="ph-fill ph-target"></i><div><h4>Co pokazuje metoda wzorca rozwoju?</h4><p>Metoda Hellwiga porównuje każde województwo z obiektem wzorcowym. Im bliżej wzorca, tym korzystniejsza pozycja regionu w rankingu.</p></div></div>
 <p>Metoda wzorca rozwoju Hellwiga należy do grupy metod porządkowania liniowego. Jej istotą jest porównanie badanych obiektów z obiektem wzorcowym, utworzonym na podstawie najkorzystniejszych wartości poszczególnych cech diagnostycznych. W przypadku stymulant są to wartości najwyższe, natomiast w przypadku destymulant wartości najniższe. Im mniejsza odległość danego obiektu od wzorca, tym wyższa wartość syntetycznej miary rozwoju oraz wyższa pozycja w rankingu.</p>
 <div class="chart-container reveal-on-scroll">
@@ -2910,57 +3693,57 @@
 <p>Na podstawie wyznaczonych wartości syntetycznej miary rozwoju Hellwiga (q<sub>i</sub>) sporządzono ranking województw. Im wyższa wartość miernika q<sub>i</sub>, tym korzystniejsza sytuacja województwa pod względem analizowanych cech diagnostycznych. Najwyższą wartość miernika uzyskało województwo zachodniopomorskie (<strong>q<sub>i</sub> = <span class="key-number">0,4459</span></strong>), co pozwoliło mu zająć pierwsze miejsce w rankingu. Wysokie pozycje zajęły również województwa podlaskie oraz podkarpackie. Z kolei najniższą wartość miernika odnotowano dla województwa świętokrzyskiego (<strong>q<sub>i</sub> = <span class="key-number">0,0322</span></strong>), które zajęło ostatnią pozycję w rankingu.</p>
 <p>Analiza wyników wskazuje na znaczne zróżnicowanie województw pod względem syntetycznej oceny jakości życia opartej na przyjętym zestawie zmiennych diagnostycznych. Różnica między najwyższą a najniższą wartością miernika Hellwiga wyniosła 0,414 punktu, co świadczy o wyraźnych dysproporcjach między badanymi regionami.</p>
 
-<h3 class="subsection-title">7.2. Ranking województw metodą <span class="key-method">TOPSIS</span></h3>
-<div class="insight-box"><i class="ph-fill ph-arrows-out-line-horizontal"></i><div><h4>Jak interpretować <span class="key-method">TOPSIS</span>?</h4><p>Najlepszy obiekt powinien być jednocześnie blisko rozwiązania idealnego i daleko od antywzorca. Dzięki temu metoda dobrze pokazuje kompromis między wieloma kryteriami.</p></div></div>
-<p>Metoda <span class="key-method">TOPSIS</span> (Technique for Order Preference by Similarity to Ideal Solution) należy do grupy metod wielokryterialnego wspomagania decyzji oraz porządkowania obiektów. Jej podstawowym założeniem jest wybór takiego obiektu, który znajduje się możliwie najbliżej rozwiązania idealnego oraz jednocześnie najdalej od rozwiązania antyidealnego.</p>
+<h3 class="subsection-title">7.2. Ranking województw metodą TOPSIS</h3>
+<div class="insight-box"><i class="ph-fill ph-arrows-out-line-horizontal"></i><div><h4>Jak interpretować TOPSIS?</h4><p>Najlepszy obiekt powinien być jednocześnie blisko rozwiązania idealnego i daleko od antywzorca. Dzięki temu metoda dobrze pokazuje kompromis między wieloma kryteriami.</p></div></div>
+<p>Metoda TOPSIS(Technique for Order Preference by Similarity to Ideal Solution) należy do grupy metod wielokryterialnego wspomagania decyzji oraz porządkowania obiektów. Jej podstawowym założeniem jest wybór takiego obiektu, który znajduje się możliwie najbliżej rozwiązania idealnego oraz jednocześnie najdalej od rozwiązania antyidealnego.</p>
 <p>W pierwszym etapie przeprowadzono normalizację wartości zmiennych diagnostycznych, co umożliwiło ich wzajemne porównywanie. Następnie, z uwzględnieniem podziału zmiennych na <span class="keyword-highlight">stymulanty</span> i <span class="keyword-highlight">destymulanty</span>, wyznaczono rozwiązanie idealne, obejmujące najbardziej pożądane wartości poszczególnych cech, oraz rozwiązanie antyidealne, składające się z wartości najmniej korzystnych. Dla każdego województwa obliczono odległość od wzorca oraz antywzorca rozwoju.</p>
-<p>Ostatecznie wyznaczono wartość syntetycznego wskaźnika <span class="key-method">TOPSIS</span>, który przyjmuje wartości z przedziału od 0 do 1. Im wyższa wartość wskaźnika, tym korzystniejsza pozycja województwa względem przyjętych kryteriów oceny oraz wyższe miejsce w rankingu.</p>
+<p>Ostatecznie wyznaczono wartość syntetycznego wskaźnika TOPSIS, który przyjmuje wartości z przedziału od 0 do 1. Im wyższa wartość wskaźnika, tym korzystniejsza pozycja województwa względem przyjętych kryteriów oceny oraz wyższe miejsce w rankingu.</p>
 <div class="chart-container reveal-on-scroll">
-<div class="table-title"><span class="caption-label">Tabela 9.</span> <span class="caption-text">Wzorzec i anty<span class="keyword-highlight">wzorzec</span> rozwoju w metodzie TOPSIS</span></div>
-<div class="table-scroll"><table class="report-table compact"><thead><tr><th>Zmienna</th><th>Charakter</th><th>Wzorzec A<sup>+</sup></th><th>Anty<span class="keyword-highlight">wzorzec</span> A<sup>−</sup></th></tr></thead><tbody><tr><td>X5</td><td class="char-col">Destymulanta</td><td>0,128</td><td>0,371</td></tr><tr><td>X11</td><td class="char-col">Stymulanta</td><td>0,346</td><td>0,205</td></tr><tr><td>X21</td><td class="char-col">Stymulanta</td><td>0,286</td><td>0,193</td></tr><tr><td>X24</td><td class="char-col">Stymulanta</td><td>0,339</td><td>0,189</td></tr><tr><td>X25</td><td class="char-col">Stymulanta</td><td>0,409</td><td>0,107</td></tr><tr><td>X26</td><td class="char-col">Stymulanta</td><td>0,331</td><td>0,147</td></tr><tr><td>X28</td><td class="char-col">Destymulanta</td><td>0,016</td><td>0,613</td></tr><tr><td>X29</td><td class="char-col">Destymulanta</td><td>0,133</td><td>0,455</td></tr><tr><td>X33</td><td class="char-col">Destymulanta</td><td>0,079</td><td>0,541</td></tr><tr><td>X35</td><td class="char-col">Stymulanta</td><td>0,346</td><td>0,183</td></tr></tbody></table></div>
+<div class="table-title"><span class="caption-label">Tabela 9.</span> <span class="caption-text">Wzorzec i antywzorzecrozwoju w metodzie TOPSIS</span></div>
+<div class="table-scroll"><table class="report-table compact"><thead><tr><th>Zmienna</th><th>Charakter</th><th>Wzorzec A<sup>+</sup></th><th>AntywzorzecA<sup>−</sup></th></tr></thead><tbody><tr><td>X5</td><td class="char-col">Destymulanta</td><td>0,128</td><td>0,371</td></tr><tr><td>X11</td><td class="char-col">Stymulanta</td><td>0,346</td><td>0,205</td></tr><tr><td>X21</td><td class="char-col">Stymulanta</td><td>0,286</td><td>0,193</td></tr><tr><td>X24</td><td class="char-col">Stymulanta</td><td>0,339</td><td>0,189</td></tr><tr><td>X25</td><td class="char-col">Stymulanta</td><td>0,409</td><td>0,107</td></tr><tr><td>X26</td><td class="char-col">Stymulanta</td><td>0,331</td><td>0,147</td></tr><tr><td>X28</td><td class="char-col">Destymulanta</td><td>0,016</td><td>0,613</td></tr><tr><td>X29</td><td class="char-col">Destymulanta</td><td>0,133</td><td>0,455</td></tr><tr><td>X33</td><td class="char-col">Destymulanta</td><td>0,079</td><td>0,541</td></tr><tr><td>X35</td><td class="char-col">Stymulanta</td><td>0,346</td><td>0,183</td></tr></tbody></table></div>
 <div class="table-source"><span class="caption-label">Źródło:</span> Opracowanie własne</div>
 </div>
-<p>Na podstawie znormalizowanych wartości zmiennych wyznaczono <span class="keyword-highlight">wzorzec</span> oraz <span class="keyword-highlight">antywzorzec</span> rozwoju. Wzorzec rozwoju (A<sup>+</sup>) został utworzony z najbardziej pożądanych wartości poszczególnych cech, natomiast anty<span class="keyword-highlight">wzorzec</span> (A<sup>−</sup>) z wartości najmniej korzystnych.</p>
+<p>Na podstawie znormalizowanych wartości zmiennych wyznaczono wzorzecoraz antywzorzecrozwoju. Wzorzec rozwoju (A<sup>+</sup>) został utworzony z najbardziej pożądanych wartości poszczególnych cech, natomiast antywzorzec(A<sup>−</sup>) z wartości najmniej korzystnych.</p>
 <div class="chart-container reveal-on-scroll">
 <div class="table-title"><span class="caption-label">Tabela 10.</span> <span class="caption-text">Wyniki metody TOPSIS dla województw</span></div>
 <div class="table-scroll"><table class="report-table ranking-table compact"><thead><tr><th>Województwo</th><th>d<sub>i0</sub><sup>+</sup></th><th>d<sub>i0</sub><sup>−</sup></th><th>q<sub>i</sub></th><th>Pozycja</th></tr></thead><tbody><tr><td>podlaskie</td><td>0,2766</td><td>0,8383</td><td><span class="key-number">0,7519</span></td><td class="rank-best">1</td></tr><tr><td>wielkopolskie</td><td>0,3036</td><td>0,7792</td><td>0,7196</td><td class="rank-best">2</td></tr><tr><td>lubuskie</td><td>0,3187</td><td>0,8119</td><td>0,7181</td><td class="rank-best">3</td></tr><tr><td>mazowieckie</td><td>0,2981</td><td>0,7588</td><td>0,7180</td><td class="rank-mid">4</td></tr><tr><td>kujawsko-pomorskie</td><td>0,3255</td><td>0,7073</td><td>0,6848</td><td class="rank-mid">5</td></tr><tr><td>lubelskie</td><td>0,4043</td><td>0,7727</td><td>0,6565</td><td class="rank-mid">6</td></tr><tr><td>zachodniopomorskie</td><td>0,3777</td><td>0,7145</td><td>0,6542</td><td class="rank-mid">7</td></tr><tr><td>dolnośląskie</td><td>0,3770</td><td>0,6815</td><td>0,6438</td><td class="rank-mid">8</td></tr><tr><td>podkarpackie</td><td>0,4145</td><td>0,7271</td><td>0,6369</td><td class="rank-mid">9</td></tr><tr><td>warmińsko-mazurskie</td><td>0,4499</td><td>0,7650</td><td>0,6297</td><td class="rank-mid">10</td></tr><tr><td>pomorskie</td><td>0,4933</td><td>0,6310</td><td>0,5612</td><td class="rank-mid">11</td></tr><tr><td>opolskie</td><td>0,4901</td><td>0,6249</td><td>0,5604</td><td class="rank-mid">12</td></tr><tr><td>łódzkie</td><td>0,5801</td><td>0,6002</td><td>0,5085</td><td class="rank-mid">13</td></tr><tr><td>małopolskie</td><td>0,6065</td><td>0,5729</td><td>0,4857</td><td class="rank-worst">14</td></tr><tr><td>świętokrzyskie</td><td>0,5759</td><td>0,5348</td><td>0,4815</td><td class="rank-worst">15</td></tr><tr><td>śląskie</td><td>0,7075</td><td>0,4730</td><td><span class="key-number">0,4007</span></td><td class="rank-worst">16</td></tr></tbody></table></div>
 <div class="table-source"><span class="caption-label">Źródło:</span> Opracowanie własne</div>
 </div>
-<p>W metodzie <span class="key-method">TOPSIS</span> najwyższą pozycję zajęło województwo podlaskie, które uzyskało największą wartość miernika syntetycznego q<sub>i</sub> = <span class="key-number">0,7519</span>. Oznacza to, że województwo to znajduje się relatywnie najbliżej rozwiązania idealnego i jednocześnie najdalej od rozwiązania antyidealnego w świetle przyjętych kryteriów oceny.</p>
+<p>W metodzie TOPSISnajwyższą pozycję zajęło województwo podlaskie, które uzyskało największą wartość miernika syntetycznego q<sub>i</sub> = <span class="key-number">0,7519</span>. Oznacza to, że województwo to znajduje się relatywnie najbliżej rozwiązania idealnego i jednocześnie najdalej od rozwiązania antyidealnego w świetle przyjętych kryteriów oceny.</p>
 <p>Z kolei najniższą pozycję zajęło województwo śląskie, dla którego wartość miernika q<sub>i</sub> wyniosła <span class="key-number">0,4007</span>. Oznacza to większe oddalenie od rozwiązania idealnego oraz większe podobieństwo do rozwiązania antyidealnego w porównaniu z pozostałymi województwami.</p>
 <p>Uzyskane wyniki wskazują na zróżnicowanie województw pod względem syntetycznej oceny jakości życia wyznaczonej metodą TOPSIS. Należy jednak podkreślić, że kolejność województw w rankingu jest konsekwencją przyjętego zestawu zmiennych diagnostycznych, ich charakteru jako stymulant lub destymulant oraz zastosowanej procedury normalizacji.</p>
 
-<h3 class="subsection-title">7.3. Ranking województw metodą <span class="key-method">COPRAS</span></h3>
-<div class="insight-box"><i class="ph-fill ph-scales"></i><div><h4>Dlaczego <span class="key-method">COPRAS</span> jest przydatny?</h4><p>COPRAS osobno uwzględnia <span class="keyword-highlight">stymulanty</span> i <span class="keyword-highlight">destymulanty</span>, dlatego pozwala przejrzyście ocenić wpływ cech korzystnych oraz niekorzystnych.</p></div></div>
-<p>Metoda <span class="key-method">COPRAS</span> (Complex Proportional Assessment) należy do grupy metod wielokryterialnego wspomagania decyzji i umożliwia jednoczesne uwzględnienie stymulant oraz destymulant. Podstawą metody jest analiza udziału poszczególnych kryteriów w ocenie badanych obiektów oraz określenie ich wpływu na końcowy wynik syntetyczny.</p>
+<h3 class="subsection-title">7.3. Ranking województw metodą COPRAS</h3>
+<div class="insight-box"><i class="ph-fill ph-scales"></i><div><h4>Dlaczego COPRASjest przydatny?</h4><p>COPRAS osobno uwzględnia <span class="keyword-highlight">stymulanty</span> i <span class="keyword-highlight">destymulanty</span>, dlatego pozwala przejrzyście ocenić wpływ cech korzystnych oraz niekorzystnych.</p></div></div>
+<p>Metoda COPRAS(Complex Proportional Assessment) należy do grupy metod wielokryterialnego wspomagania decyzji i umożliwia jednoczesne uwzględnienie stymulant oraz destymulant. Podstawą metody jest analiza udziału poszczególnych kryteriów w ocenie badanych obiektów oraz określenie ich wpływu na końcowy wynik syntetyczny.</p>
 <p>W pierwszym etapie dokonano normalizacji danych, a następnie wyznaczono sumy znormalizowanych wartości dla stymulant S<sub>i</sub><sup>+</sup> oraz destymulant S<sub>i</sub><sup>−</sup>. Na tej podstawie obliczono względną istotność każdego województwa Q<sub>i</sub>, która stanowi syntetyczny miernik oceny. Im wyższa wartość wskaźnika Q<sub>i</sub>, tym korzystniejsza pozycja województwa względem przyjętych kryteriów oceny oraz wyższe miejsce w rankingu.</p>
 <div class="chart-container reveal-on-scroll">
 <div class="table-title"><span class="caption-label">Tabela 11.</span> <span class="caption-text">Wyniki metody COPRAS dla województw</span></div>
 <div class="table-scroll"><table class="report-table ranking-table compact"><thead><tr><th>Województwo</th><th>S<sub>i</sub><sup>+</sup></th><th>S<sub>i</sub><sup>−</sup></th><th>Q<sub>i</sub></th><th>Pozycja</th></tr></thead><tbody><tr><td>lubuskie</td><td>1,3035</td><td>0,5415</td><td>1,00</td><td class="rank-best">1</td></tr><tr><td>podlaskie</td><td>1,2572</td><td>0,5510</td><td>0,98</td><td class="rank-best">2</td></tr><tr><td>wielkopolskie</td><td>1,1816</td><td>0,6050</td><td>0,90</td><td class="rank-best">3</td></tr><tr><td>mazowieckie</td><td>1,4669</td><td>0,7250</td><td>0,87</td><td class="rank-mid">4</td></tr><tr><td>dolnośląskie</td><td>1,7344</td><td>0,9275</td><td>0,83</td><td class="rank-mid">5</td></tr><tr><td>kujawsko-pomorskie</td><td>1,2136</td><td>0,7377</td><td>0,80</td><td class="rank-mid">6</td></tr><tr><td>zachodniopomorskie</td><td>1,3774</td><td>0,8056</td><td>0,80</td><td class="rank-mid">7</td></tr><tr><td>lubelskie</td><td>1,0773</td><td>0,7091</td><td>0,78</td><td class="rank-mid">8</td></tr><tr><td>warmińsko-mazurskie</td><td>1,0018</td><td>0,7081</td><td>0,77</td><td class="rank-mid">9</td></tr><tr><td>podkarpackie</td><td>1,1474</td><td>0,7857</td><td>0,75</td><td class="rank-mid">10</td></tr><tr><td>opolskie</td><td>1,2506</td><td>0,8911</td><td>0,72</td><td class="rank-mid">11</td></tr><tr><td>pomorskie</td><td>1,2385</td><td>1,0502</td><td>0,66</td><td class="rank-mid">12</td></tr><tr><td>łódzkie</td><td>1,1238</td><td>0,9700</td><td>0,66</td><td class="rank-mid">13</td></tr><tr><td>małopolskie</td><td>1,2141</td><td>1,2420</td><td>0,60</td><td class="rank-worst">14</td></tr><tr><td>śląskie</td><td>1,1776</td><td>1,2804</td><td>0,58</td><td class="rank-worst">15</td></tr><tr><td>świętokrzyskie</td><td>1,0723</td><td>1,2313</td><td>0,57</td><td class="rank-worst">16</td></tr></tbody></table></div>
 <div class="table-source"><span class="caption-label">Źródło:</span> Opracowanie własne</div>
 </div>
-<div class="method-note">S<sub>i</sub><sup>+</sup> – suma znormalizowanych wartości stymulant, S<sub>i</sub><sup>−</sup> – suma znormalizowanych wartości destymulant, Q<sub>i</sub> – syntetyczny wskaźnik oceny uzyskany metodą <span class="key-method">COPRAS</span>.</div>
-<p>Otrzymane wyniki świadczą o znacznym zróżnicowaniu poziomu rozwoju społeczno-gospodarczego pomiędzy analizowanymi województwami. Metoda <span class="key-method">COPRAS</span> umożliwiła jednoczesne uwzględnienie wpływu stymulant i destymulant, co pozwoliło na kompleksową ocenę badanych jednostek.</p>
-<p>Wyniki metody <span class="key-method">COPRAS</span> wskazują, że najwyższą pozycję w rankingu zajęło województwo lubuskie, dla którego wartość wskaźnika użyteczności Q<sub>i</sub> wyniosła <span class="key-number">1,0000</span>. Wysokie miejsca zajęły również województwa podlaskie oraz wielkopolskie. Na końcu rankingu znalazły się województwa świętokrzyskie, śląskie i małopolskie, które uzyskały najniższe wartości wskaźnika Q<sub>i</sub>.</p>
+<div class="method-note">S<sub>i</sub><sup>+</sup> – suma znormalizowanych wartości stymulant, S<sub>i</sub><sup>−</sup> – suma znormalizowanych wartości destymulant, Q<sub>i</sub> – syntetyczny wskaźnik oceny uzyskany metodą COPRAS.</div>
+<p>Otrzymane wyniki świadczą o znacznym zróżnicowaniu poziomu rozwoju społeczno-gospodarczego pomiędzy analizowanymi województwami. Metoda COPRASumożliwiła jednoczesne uwzględnienie wpływu stymulant i destymulant, co pozwoliło na kompleksową ocenę badanych jednostek.</p>
+<p>Wyniki metody COPRASwskazują, że najwyższą pozycję w rankingu zajęło województwo lubuskie, dla którego wartość wskaźnika użyteczności Q<sub>i</sub> wyniosła <span class="key-number">1,0000</span>. Wysokie miejsca zajęły również województwa podlaskie oraz wielkopolskie. Na końcu rankingu znalazły się województwa świętokrzyskie, śląskie i małopolskie, które uzyskały najniższe wartości wskaźnika Q<sub>i</sub>.</p>
 
-<h3 class="subsection-title">7.4. Porównanie wyników metod <span class="key-method">MWR</span>, TOPSIS i COPRAS</h3>
+<h3 class="subsection-title">7.4. Porównanie wyników metod MWR, TOPSIS i COPRAS</h3>
 <div class="chart-container reveal-on-scroll">
 <div class="takeaway-box"><i class="ph-fill ph-chart-bar"></i><div><h4>Jak czytać porównanie metod?</h4><p>Niższa średnia pozycja oznacza korzystniejszy wynik łączny. Dzięki temu można sprawdzić, które województwa utrzymują dobrą pozycję niezależnie od metody.</p></div></div>
 <div class="table-title"><span class="caption-label">Tabela 12.</span> <span class="caption-text">Zestawienie rankingów województw według metod MWR, TOPSIS i COPRAS</span></div>
 <div class="table-scroll"><table class="report-table ranking-table compact"><thead><tr><th>Województwo</th><th>MWR</th><th>TOPSIS</th><th>COPRAS</th><th>Średnia pozycja</th></tr></thead><tbody><tr><td>zachodniopomorskie</td><td>1</td><td>7</td><td>7</td><td class="rank-best">5,0</td></tr><tr><td>podlaskie</td><td>2</td><td>1</td><td>2</td><td class="rank-best">1,7</td></tr><tr><td>podkarpackie</td><td>3</td><td>9</td><td>10</td><td class="rank-mid">7,3</td></tr><tr><td>opolskie</td><td>4</td><td>12</td><td>11</td><td class="rank-mid">9,0</td></tr><tr><td>mazowieckie</td><td>5</td><td>4</td><td>4</td><td class="rank-best">4,3</td></tr><tr><td>kujawsko-pomorskie</td><td>6</td><td>5</td><td>6</td><td class="rank-mid">5,7</td></tr><tr><td>dolnośląskie</td><td>7</td><td>8</td><td>5</td><td class="rank-mid">6,7</td></tr><tr><td>lubuskie</td><td>8</td><td>3</td><td>1</td><td class="rank-best">4,0</td></tr><tr><td>wielkopolskie</td><td>9</td><td>2</td><td>3</td><td class="rank-best">4,7</td></tr><tr><td>małopolskie</td><td>10</td><td>14</td><td>14</td><td class="rank-worst">12,7</td></tr><tr><td>pomorskie</td><td>11</td><td>11</td><td>12</td><td class="rank-mid">11,3</td></tr><tr><td>łódzkie</td><td>12</td><td>13</td><td>13</td><td class="rank-worst">12,7</td></tr><tr><td>lubelskie</td><td>13</td><td>6</td><td>8</td><td class="rank-mid">9,0</td></tr><tr><td>śląskie</td><td>14</td><td>16</td><td>15</td><td class="rank-worst">15,0</td></tr><tr><td>warmińsko-mazurskie</td><td>15</td><td>10</td><td>9</td><td class="rank-mid">11,3</td></tr><tr><td>świętokrzyskie</td><td>16</td><td>15</td><td>16</td><td class="rank-worst">15,7</td></tr></tbody></table></div>
 <div class="table-source"><span class="caption-label">Źródło:</span> Opracowanie własne</div>
 </div>
-<p>W tabeli 12 przedstawiono pozycje województw uzyskane przy zastosowaniu trzech metod wielokryterialnej oceny: <span class="key-method">MWR</span>, TOPSIS oraz COPRAS. Zestawienie umożliwia porównanie wyników otrzymanych za pomocą różnych procedur agregacji zmiennych diagnostycznych oraz ocenę stabilności pozycji poszczególnych województw.</p>
+<p>W tabeli 12 przedstawiono pozycje województw uzyskane przy zastosowaniu trzech metod wielokryterialnej oceny: MWR, TOPSIS oraz COPRAS. Zestawienie umożliwia porównanie wyników otrzymanych za pomocą różnych procedur agregacji zmiennych diagnostycznych oraz ocenę stabilności pozycji poszczególnych województw.</p>
 <p>Analiza wyników wskazuje na względną zgodność rankingów, szczególnie w przypadku województw zajmujących skrajne pozycje. Kolumna zawierająca średnią pozycję pozwala syntetycznie ocenić łączny wynik województw w trzech zastosowanych metodach. Niższa średnia pozycja oznacza korzystniejszą ocenę województwa w ujęciu łącznym, natomiast wyższa średnia pozycja wskazuje na słabszą pozycję względem pozostałych regionów.</p>
 <p>Najkorzystniejsze wyniki w ujęciu łącznym uzyskały województwa, które w większości metod zajmowały wysokie pozycje rankingowe. Do tej grupy należą przede wszystkim województwa podlaskie, lubuskie, mazowieckie oraz wielkopolskie. Z kolei najsłabsze wyniki uzyskały województwa świętokrzyskie, śląskie, łódzkie oraz małopolskie, które regularnie pojawiały się na końcowych pozycjach rankingów.</p>
-<p>Widoczne różnice między wynikami poszczególnych metod wynikają z odmiennych procedur agregacji informacji diagnostycznej. Metoda <span class="key-method">MWR</span> opiera się na odległości od wzorca rozwoju, TOPSIS uwzględnia jednocześnie odległość od rozwiązania idealnego i antyidealnego, natomiast COPRAS oddzielnie agreguje wartości stymulant i destymulant. Z tego względu pozycje niektórych województw różnią się w zależności od zastosowanej metody.</p>
+<p>Widoczne różnice między wynikami poszczególnych metod wynikają z odmiennych procedur agregacji informacji diagnostycznej. Metoda MWRopiera się na odległości od wzorca rozwoju, TOPSIS uwzględnia jednocześnie odległość od rozwiązania idealnego i antyidealnego, natomiast COPRAS oddzielnie agreguje wartości stymulant i destymulant. Z tego względu pozycje niektórych województw różnią się w zależności od zastosowanej metody.</p>
 <div class="chart-container map-large">
 <div class="takeaway-box"><i class="ph-fill ph-map-trifold"></i><div><h4>Co wynika z mapy?</h4><p>Mapa ułatwia szybkie porównanie pozycji województw. Jaśniejsze kolory wskazują korzystniejsze średnie miejsce w rankingach, a ciemniejsze słabszą pozycję łączną.</p></div></div>
 <div class="chart-title"><span class="caption-label">Wykres 21.</span> <span class="caption-text">Porównanie pozycji województw w rankingach uzyskanych metodami MWR, TOPSIS i COPRAS</span></div>
 <img src="Wykres 21. Porównanie pozycji województw .png" alt="Wykres 21. Porównanie pozycji województw"/>
 <div class="source-note"><span class="caption-label">Źródło:</span> Opracowanie własne</div>
 </div>
-<p>Na mapie przedstawiono pozycje województw uzyskane w trzech zastosowanych metodach porządkowania liniowego: <span class="key-method">MWR</span>, TOPSIS oraz COPRAS. Oznaczenia M, T i C wskazują odpowiednio miejsce zajęte przez województwo w rankingu wyznaczonym każdą z metod. Kolorystyka województw odzwierciedla średnią pozycję uzyskaną we wszystkich trzech rankingach. Jaśniejsze odcienie oznaczają korzystniejszą pozycję, czyli niższą średnią rangę, natomiast ciemniejsze odcienie wskazują na słabszą pozycję, czyli wyższą średnią rangę.</p>
+<p>Na mapie przedstawiono pozycje województw uzyskane w trzech zastosowanych metodach porządkowania liniowego: MWR, TOPSIS oraz COPRAS. Oznaczenia M, T i C wskazują odpowiednio miejsce zajęte przez województwo w rankingu wyznaczonym każdą z metod. Kolorystyka województw odzwierciedla średnią pozycję uzyskaną we wszystkich trzech rankingach. Jaśniejsze odcienie oznaczają korzystniejszą pozycję, czyli niższą średnią rangę, natomiast ciemniejsze odcienie wskazują na słabszą pozycję, czyli wyższą średnią rangę.</p>
 <p>Najkorzystniejsze wyniki w ujęciu łącznym osiągnęły województwa podlaskie, lubuskie, mazowieckie, wielkopolskie oraz zachodniopomorskie. Z kolei najsłabsze pozycje zajęły województwa świętokrzyskie, śląskie, małopolskie oraz łódzkie. Wyniki te wskazują na wyraźne zróżnicowanie województw pod względem syntetycznej oceny jakości życia opartej na przyjętym zestawie zmiennych diagnostycznych.</p>
 <p>Porównanie rezultatów uzyskanych trzema metodami pozwoliło ocenić stabilność pozycji województw oraz wskazać regiony, których wyniki są relatywnie odporne na wybór konkretnej procedury porządkowania liniowego. Widoczne różnice między metodami wynikają z odmiennego sposobu agregacji informacji diagnostycznej, w szczególności z różnego sposobu uwzględniania odległości od wzorca, antywzorca oraz wartości stymulant i destymulant.</p>
 </div>
@@ -2981,6 +3764,211 @@
         card.addEventListener('mouseleave', () => {
             card.style.transform = '';
         });
+    });
+})();
+</script>
+
+
+
+
+
+<script>
+(function(){
+    const officialProvinceNames = {
+        "dolnośląskie": "Dolnośląskie",
+        "kujawsko-pomorskie": "Kujawsko-pomorskie",
+        "lubelskie": "Lubelskie",
+        "lubuskie": "Lubuskie",
+        "łódzkie": "Łódzkie",
+        "małopolskie": "Małopolskie",
+        "mazowieckie": "Mazowieckie",
+        "opolskie": "Opolskie",
+        "podkarpackie": "Podkarpackie",
+        "podlaskie": "Podlaskie",
+        "pomorskie": "Pomorskie",
+        "śląskie": "Śląskie",
+        "świętokrzyskie": "Świętokrzyskie",
+        "warmińsko-mazurskie": "Warmińsko-mazurskie",
+        "wielkopolskie": "Wielkopolskie",
+        "zachodniopomorskie": "Zachodniopomorskie"
+    };
+
+    function normalizeProvinceName(raw) {
+        if (!raw) return "";
+        const cleaned = String(raw).trim().replace(/_/g, " ").toLowerCase();
+        return officialProvinceNames[cleaned] || cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+    }
+
+    function attachCorrectProvinceTooltips() {
+        const map = document.getElementById("interactive-map");
+        if (!map) return;
+
+        let tooltip = document.querySelector(".province-hover-tooltip");
+        if (!tooltip) {
+            tooltip = document.createElement("div");
+            tooltip.className = "province-hover-tooltip";
+            document.body.appendChild(tooltip);
+        }
+
+        const dots = map.querySelectorAll(".map-dot-center, circle.map-dot-center");
+        if (!dots.length) return;
+
+        dots.forEach(function(dot) {
+            if (dot.dataset.correctTooltipReady === "1") return;
+            dot.dataset.correctTooltipReady = "1";
+
+            const data = dot.__data__ || {};
+            const props = data.properties || {};
+            const rawName =
+                props.nazwa ||
+                props.name ||
+                props.wojewodztwo ||
+                data.nazwa ||
+                data.name ||
+                data.wojewodztwo ||
+                dot.getAttribute("data-name") ||
+                dot.getAttribute("data-wojewodztwo") ||
+                dot.getAttribute("aria-label") ||
+                dot.getAttribute("title") ||
+                "";
+
+            const name = normalizeProvinceName(rawName);
+            if (!name) return;
+
+            dot.setAttribute("title", name);
+            dot.setAttribute("aria-label", name);
+
+            dot.addEventListener("mouseenter", function(e) {
+                tooltip.textContent = name;
+                tooltip.style.opacity = "1";
+                tooltip.style.left = e.clientX + "px";
+                tooltip.style.top = (e.clientY - 12) + "px";
+            });
+
+            dot.addEventListener("mousemove", function(e) {
+                tooltip.style.left = e.clientX + "px";
+                tooltip.style.top = (e.clientY - 12) + "px";
+            });
+
+            dot.addEventListener("mouseleave", function() {
+                tooltip.style.opacity = "0";
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        attachCorrectProvinceTooltips();
+        setTimeout(attachCorrectProvinceTooltips, 800);
+        setTimeout(attachCorrectProvinceTooltips, 1800);
+        setTimeout(attachCorrectProvinceTooltips, 3200);
+
+        const map = document.getElementById("interactive-map");
+        if (map && "MutationObserver" in window) {
+            const observer = new MutationObserver(attachCorrectProvinceTooltips);
+            observer.observe(map, { childList: true, subtree: true });
+        }
+    });
+})();
+</script>
+
+
+<script>
+(function(){
+    const layer = document.querySelector('.ambient-layer');
+    if (!layer) return;
+
+    const items = Array.from(layer.querySelectorAll('.ambient-category, .ambient-province'));
+    if (!items.length) return;
+
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    const state = [];
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let last = performance.now();
+
+    function randomBetween(min, max) {
+        return min + Math.random() * (max - min);
+    }
+
+    function initItems() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        state.length = 0;
+
+        items.forEach((el, index) => {
+            el.style.left = '0px';
+            el.style.top = '0px';
+            el.style.right = 'auto';
+            el.style.bottom = 'auto';
+
+            const rect = el.getBoundingClientRect();
+            const w = Math.max(rect.width, 80);
+            const h = Math.max(rect.height, 28);
+
+            const speedBase = el.classList.contains('ambient-province') ? 0.030 : 0.024;
+            const directionX = Math.random() > 0.5 ? 1 : -1;
+            const directionY = Math.random() > 0.5 ? 1 : -1;
+
+            state.push({
+                el,
+                x: randomBetween(24, Math.max(28, width - w - 24)),
+                y: randomBetween(86, Math.max(90, height - h - 36)),
+                vx: directionX * randomBetween(speedBase * 0.55, speedBase * 1.15),
+                vy: directionY * randomBetween(speedBase * 0.55, speedBase * 1.15),
+                w,
+                h,
+                phase: Math.random() * Math.PI * 2,
+                rotation: randomBetween(-3, 3),
+                index
+            });
+        });
+    }
+
+    function animate(now) {
+        const dt = Math.min(now - last, 36);
+        last = now;
+
+        state.forEach(obj => {
+            obj.x += obj.vx * dt;
+            obj.y += obj.vy * dt;
+
+            const minX = 10;
+            const minY = 74;
+            const maxX = Math.max(minX + 1, width - obj.w - 10);
+            const maxY = Math.max(minY + 1, height - obj.h - 16);
+
+            if (obj.x <= minX || obj.x >= maxX) {
+                obj.vx *= -1;
+                obj.x = Math.min(Math.max(obj.x, minX), maxX);
+            }
+
+            if (obj.y <= minY || obj.y >= maxY) {
+                obj.vy *= -1;
+                obj.y = Math.min(Math.max(obj.y, minY), maxY);
+            }
+
+            const wave = Math.sin(now * 0.0012 + obj.phase) * 4;
+            const rotate = obj.rotation + Math.sin(now * 0.0008 + obj.phase) * 2;
+
+            obj.el.style.transform = `translate3d(${obj.x}px, ${obj.y + wave}px, 0) rotate(${rotate}deg)`;
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    initItems();
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initItems, 180);
+    });
+
+    requestAnimationFrame((t) => {
+        last = t;
+        animate(t);
     });
 })();
 </script>
